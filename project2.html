@@ -4,25 +4,60 @@
 			<title>My Game</title>
 			<script type = "text/javascript">
 				var score = 0;
+				var visitNorth = false;
+				var visitSouth = false;
+				var visitEast = false;
+				var visitWest = false;
 
 				function goNorth() {
-					var message = "You go North.";
-					displayText(message);	
-							
+					if (visitNorth == false) {
+						var message = "You go North.";
+						displayText(message);
+						visitNorth = true;
+						score = score + 5;
+						document.getElementById("score").innerHTML = "Score: " + score;
+					} else {
+						var message = "You go North.";
+						displayText(message);	
+					}	
 				}
 				function goSouth() {
-					var message = "You go South.";
-					displayText(message);
+					if (visitSouth == false) {
+						var message = "You go South.";
+						displayText(message);
+						visitSouth = true;
+						score = score + 5;
+						document.getElementById("score").innerHTML = "Score: " + score;
+					} else {
+						var message = "You go South.";
+						displayText(message);	
+					}
 					
 				}
 				function goEast() {
-					var message = "You go East.";
-					displayText(message);
+					if (visitEast == false) {
+						var message = "You go East.";
+						displayText(message);
+						visitEast = true;
+						score = score + 5;
+						document.getElementById("score").innerHTML = "Score: " + score;
+					} else {
+						var message = "You go East.";
+						displayText(message);	
+					}
 			
 				}
 				function goWest() {
-					var message = "You go West.";					
-					displayText(message);
+					if (visitWest == false) {
+						var message = "You go West.";
+						displayText(message);
+						visitWest = true;
+						score = score + 5;
+						document.getElementById("score").innerHTML = "Score: " + score;
+					} else {
+						var message = "You go West.";
+						displayText(message);	
+					}
 				
 				}
 				function displayText(message) {
@@ -35,7 +70,7 @@
 <body>
 <h1>My Game</h1>
 <a href = "mailto:mguarino223@gmail.com">My email</a><br /><br />
-<textarea id = "textBox">You are standing.</textarea><p>Score: 0</p><br />
+<textarea id = "textBox">You are standing.</textarea><p id = "score"></p><br />
 <input style = "margin-left: 20px;" type = "button" id = "north" value = "North" onclick = "goNorth()"><br />
 <input type = "button" id = "west" value = "West" onclick = "goWest()">
 <input type = "button" id = "east" value = "East" onclick = "goEast()"><br />
