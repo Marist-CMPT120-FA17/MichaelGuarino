@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>My Game</title>
+			<script type = "text/javascript">
+				var score = 0;
+
+				function goNorth() {
+					var message = "You go North.";
+					displayText(message);	
+							
+				}
+				function goSouth() {
+					var message = "You go South.";
+					displayText(message);
+					
+				}
+				function goEast() {
+					var message = "You go East.";
+					displayText(message);
+			
+				}
+				function goWest() {
+					var message = "You go West.";					
+					displayText(message);
+				
+				}
+				function displayText(message) {
+					var textArea = document.getElementById("textBox");
+					textArea.value = message;
+				}
+			</script>
+		</head>
+
+<body>
+<h1>My Game</h1>
+<a href = "mailto:mguarino223@gmail.com">My email</a><br /><br />
+<textarea id = "textBox">You are standing.</textarea><p>Score: 0</p><br />
+<input style = "margin-left: 20px;" type = "button" id = "north" value = "North" onclick = "goNorth()"><br />
+<input type = "button" id = "west" value = "West" onclick = "goWest()">
+<input type = "button" id = "east" value = "East" onclick = "goEast()"><br />
+<input style = "margin-left: 20px;" type = "button" id = "south" value = "South" onclick = "goSouth()">
+</body>
+</html>
