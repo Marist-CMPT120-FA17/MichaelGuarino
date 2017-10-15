@@ -4,15 +4,35 @@
 			<title>My Game</title>
 			<script type = "text/javascript">
 				var score = 0;
+				var pos = 21;
 				var visitNorth = false;
 				var visitSouth = false;
 				var visitEast = false;
 				var visitWest = false;
 
+				function playerInput() {
+					var input = document.getElementById("inputBox").value;
+					//console.log(input);
+					input = input.toUpperCase();
+					if (input == "N") {
+						goNorth();
+					} else if (input == "S") {
+						goSouth();
+					} else if (input == "E") {
+						goEast();
+					} else if (input == "W") {
+						goWest();
+					} else {
+						var message = "Invalid Input";
+						displayText(message);
+					}
+				}
 				function goNorth() {
 					if (visitNorth == false) {
 						var message = "You go North.";
 						displayText(message);
+						pos = pos + 10;
+						console.log(pos);
 						visitNorth = true;
 						score = score + 5;
 						document.getElementById("score").innerHTML = "Score: " + score;
@@ -25,6 +45,8 @@
 					if (visitSouth == false) {
 						var message = "You go South.";
 						displayText(message);
+						pos = pos - 10;
+						console.log(pos);
 						visitSouth = true;
 						score = score + 5;
 						document.getElementById("score").innerHTML = "Score: " + score;
@@ -38,6 +60,8 @@
 					if (visitEast == false) {
 						var message = "You go East.";
 						displayText(message);
+						pos = pos + 1;
+						console.log(pos);
 						visitEast = true;
 						score = score + 5;
 						document.getElementById("score").innerHTML = "Score: " + score;
@@ -51,6 +75,8 @@
 					if (visitWest == false) {
 						var message = "You go West.";
 						displayText(message);
+						pos = pos - 1;
+						console.log(pos);
 						visitWest = true;
 						score = score + 5;
 						document.getElementById("score").innerHTML = "Score: " + score;
@@ -70,6 +96,7 @@
 <body>
 <h1>My Game</h1>
 <a href = "mailto:mguarino223@gmail.com">My email</a><br /><br />
+<textarea id = "inputBox"></textarea><input id = "go" type = "button" value = "Go" onclick = "playerInput()">
 <textarea id = "textBox">You are standing.</textarea><p id = "score"></p><br />
 <input style = "margin-left: 20px;" type = "button" id = "north" value = "North" onclick = "goNorth()"><br />
 <input type = "button" id = "west" value = "West" onclick = "goWest()">
