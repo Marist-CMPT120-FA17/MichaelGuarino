@@ -3,12 +3,18 @@
 		<head>
 			<title>My Game</title>
 			<script type = "text/javascript">
-				var score = 0;
+				var score = 5;
 				var pos = 21;
-				var visitNorth = false;
-				var visitSouth = false;
-				var visitEast = false;
-				var visitWest = false;
+				var visit10 = false;
+				var visit11 = false;
+				var visit12 = false;
+				var visit20 = false;
+				var visit21 = true;
+				var visit22 = false;
+				var visit30 = false;
+				var visit31 = false;
+				var visit32 = false;
+
 
 				function playerInput() {
 					var input = document.getElementById("inputBox").value;
@@ -28,18 +34,20 @@
 					}
 				}
 				function goNorth() {
-					if (visitNorth == false) {
-						var message = "You go North.";
-						displayText(message);
+					//if (visitNorth == false) {
+						//var message = "You go North.";
+						//displayText(message);
 						pos = pos + 10;
 						console.log(pos);
-						visitNorth = true;
-						score = score + 5;
-						document.getElementById("score").innerHTML = "Score: " + score;
-					} else {
-						var message = "You go North.";
-						displayText(message);	
-					}	
+						//visitNorth = true;
+						//score = score + 5;
+						//document.getElementById("score").innerHTML = "Score: " + score;
+					//} else {
+						//var message = "You go North.";
+						//displayText(message);	
+					//}	
+						messageWriter(pos);
+						areaCheck(pos);
 				}
 				function goSouth() {
 					if (visitSouth == false) {
@@ -89,6 +97,14 @@
 				function displayText(message) {
 					var textArea = document.getElementById("textBox");
 					textArea.value = message;
+				}
+				function messageWriter(pos) {
+					switch (pos) {
+						case 10: var
+					}
+				}
+				function areaCheck(pos) {
+					
 				}
 			</script>
 		</head>
