@@ -5,15 +5,15 @@
 			<script type = "text/javascript">
 				var score = 5;
 				var pos = 21;
-				var visit10 = false;
-				var visit11 = false;
-				var visit12 = false;
-				var visit20 = false;
-				var visit21 = true;
-				var visit22 = false;
-				var visit30 = false;
-				var visit31 = false;
-				var visit32 = false;
+				var visit10 = 0;
+				var visit11 = 0;
+				var visit12 = 0;
+				var visit20 = 0;
+				var visit21 = 1;
+				var visit22 = 0;
+				var visit30 = 0;
+				var visit31 = 0;
+				var visit32 = 0;
 
 
 				function playerInput() {
@@ -130,7 +130,43 @@
 					}
 				}
 				function areaCheck() {
-					
+					if (pos == 10) {
+						visit10 = 1;
+						console.log(visit10);
+						scoreKeeper();
+					} else if (pos == 11) {
+						visit11 = 1;
+						console.log(visit11);
+						scoreKeeper();
+					} else if (pos == 12) {
+						visit12 = 1;
+						console.log(visit12);
+						scoreKeeper();
+					} else if (pos == 20) {
+						visit20 = 1;
+						console.log(visit20);
+						scoreKeeper();
+					} else if (pos == 22) {
+						visit22 = 1;
+						console.log(visit22);
+						scoreKeeper();
+					} else if (pos == 30) {
+						visit30 = 1;
+						console.log(visit30);
+						scoreKeeper();
+					} else if (pos == 31) {
+						visit31 = 1;
+						console.log(visit31);
+						scoreKeeper();
+					} else if (pos == 32) {
+						visit32 = 1;
+						console.log(visit32);
+						scoreKeeper();
+					}
+				}
+				function scoreKeeper() {
+					var score = (visit10 + visit11 + visit12 + visit20 + visit21 + visit22 + visit30 + visit31 + visit32) * 5;
+
 				}
 			</script>
 		</head>
@@ -139,7 +175,7 @@
 <h1>My Game</h1>
 <a href = "mailto:mguarino223@gmail.com">My email</a><br /><br />
 <textarea id = "inputBox"></textarea><input id = "go" type = "button" value = "Go" onclick = "playerInput()">
-<textarea id = "textBox">You are standing.</textarea><p id = "score"></p><br />
+<textarea id = "textBox">You are standing.</textarea><p id = "score">Score: 5</p><br />
 <input style = "margin-left: 20px;" type = "button" id = "north" value = "North" onclick = "goNorth()"><br />
 <input type = "button" id = "west" value = "West" onclick = "goWest()">
 <input type = "button" id = "east" value = "East" onclick = "goEast()"><br />
