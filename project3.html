@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html>
 		<head>
-			<title>My Game</title>
+			<title>The Haunted House</title>
 			<script type = "text/javascript">
 				var score = 5;
 				var pos = 21;
@@ -92,39 +92,39 @@
 				function messageWriter() {
 					switch (pos) {
 						case 10: 
-							var message = "You are at 10";
+							var message = "You're in the downstairs bathroom. The mirror is completely blacked out with what looks like spraypaint. You suddenly feel very self-conscious about your looks.";
 							updateDisplay(message);
 							break;
 						case 11: 
-							var message = "You are at 11";
+							var message = "You're in the dining room. The table is set with food and everything, but no one is here to eat. What a waste.";
 							updateDisplay(message);
 							break;
 						case 12:
-							var message = "You are at 12";
+							var message = "You're in the hallway closet. Nothing much in here, just a bunch of skeletons. Sigh...";
 							updateDisplay(message);
 							break;
 						case 20:
-							var message = "You are at 20";
+							var message = "You're in the kitchen. There's a particularly delicious looking piece of cake on the table. It looks too good to be true.";
 							updateDisplay(message);
 							break;
 						case 21:
-							var message = "You are at 21";
+							var message = "You're back in the foyer. The front door is still locked.";
 							updateDisplay(message);
 							break;
 						case 22:
-							var message = "You are at 22";
+							var message = "You're in the living room. There's a fire going in the fireplace, but no firewood. You're sure this must break some kind of fire code.";
 							updateDisplay(message);
 							break;
 						case 30:
-							var message = "You are at 30";
+							var message = "You're in the upstairs bathroom. The toilet is shaking violently and making a lot of weird noises. You make a note to call the plumber once you escape.";
 							updateDisplay(message);
 							break;
 						case 31:
-							var message = "You are at 31";
+							var message = "You're on the second floor. There's a large painting of a man hanging on the wall and his eyes follow you whenever you move. Spooky.";
 							updateDisplay(message);
 							break;
 						case 32:
-							var message = "You are at 32";
+							var message = "You're in the master bedroom. You want to take a nap, but the bed appears to be floating. You decide against it.";
 							updateDisplay(message);
 							break;
 					}
@@ -132,34 +132,66 @@
 				function areaCheck() {
 					if (pos == 10) {
 						visit10 = 1;
+						/*document.getElementById("north").disabled = "false";
+						document.getElementById("south").disabled = "true";
+						document.getElementById("east").disabled = "false";
+						document.getElementById("west").disabled = "true";*/
 						console.log(visit10);
 						scoreKeeper();
 					} else if (pos == 11) {
 						visit11 = 1;
+						/*document.getElementById("north").disabled = "false";
+						document.getElementById("south").disabled = "true";
+						document.getElementById("east").disabled = "false";
+						document.getElementById("west").disabled = "false";*/
 						console.log(visit11);
 						scoreKeeper();
 					} else if (pos == 12) {
 						visit12 = 1;
+						/*document.getElementById("north").disabled = "false";
+						document.getElementById("south").disabled = "true";
+						document.getElementById("east").disabled = "true";
+						document.getElementById("west").disabled = "false";*/
 						console.log(visit12);
 						scoreKeeper();
 					} else if (pos == 20) {
 						visit20 = 1;
+						/*document.getElementById("north").disabled = "false";
+						document.getElementById("south").disabled = "false";
+						document.getElementById("east").disabled = "false";
+						document.getElementById("west").disabled = "true";*/
 						console.log(visit20);
 						scoreKeeper();
 					} else if (pos == 22) {
 						visit22 = 1;
+						/*document.getElementById("north").disabled = "false";
+						document.getElementById("south").disabled = "false";
+						document.getElementById("east").disabled = "true";
+						document.getElementById("west").disabled = "false";*/
 						console.log(visit22);
 						scoreKeeper();
 					} else if (pos == 30) {
 						visit30 = 1;
+						/*document.getElementById("north").disabled = "true";
+						document.getElementById("south").disabled = "false";
+						document.getElementById("east").disabled = "false";
+						document.getElementById("west").disabled = "true";*/
 						console.log(visit30);
 						scoreKeeper();
 					} else if (pos == 31) {
 						visit31 = 1;
+						/*document.getElementById("north").disabled = "true";
+						document.getElementById("south").disabled = "false";
+						document.getElementById("east").disabled = "false";
+						document.getElementById("west").disabled = "false";*/
 						console.log(visit31);
 						scoreKeeper();
 					} else if (pos == 32) {
 						visit32 = 1;
+						/*document.getElementById("north").disabled = "true";
+						document.getElementById("south").disabled = "false";
+						document.getElementById("east").disabled = "true";
+						document.getElementById("west").disabled = "false";*/
 						console.log(visit32);
 						scoreKeeper();
 					}
@@ -172,10 +204,10 @@
 		</head>
 
 <body>
-<h1>My Game</h1>
+<h1>The Haunted House</h1>
 <a href = "mailto:mguarino223@gmail.com">My email</a><br /><br />
 <textarea id = "inputBox"></textarea><input id = "go" type = "button" value = "Go" onclick = "playerInput()">
-<textarea id = "textBox">You are standing.</textarea><p id = "score">Score: 5</p><br />
+<textarea id = "textBox" rows = "5" cols= "40">You find yourself trapped inside a haunted house. You're in the foyer and the front door is locked, but you can explore the rest of the house.</textarea><p id = "score">Score: 5</p><br />
 <input style = "margin-left: 20px;" type = "button" id = "north" value = "North" onclick = "goNorth()"><br />
 <input type = "button" id = "west" value = "West" onclick = "goWest()">
 <input type = "button" id = "east" value = "East" onclick = "goEast()"><br />
