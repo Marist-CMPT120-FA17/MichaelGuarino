@@ -30,80 +30,106 @@
 						goWest();
 					} else {
 						var message = "Invalid Input";
-						displayText(message);
+						updateDisplay(message);
 					}
 				}
 				function goNorth() {
-					//if (visitNorth == false) {
-						//var message = "You go North.";
-						//displayText(message);
+					
+					if (pos == 30 || pos == 31 || pos == 32) {
+						var message = "You can't go that way.";
+						updateDisplay(message);
+					} else {
 						pos = pos + 10;
 						console.log(pos);
-						//visitNorth = true;
-						//score = score + 5;
-						//document.getElementById("score").innerHTML = "Score: " + score;
-					//} else {
-						//var message = "You go North.";
-						//displayText(message);	
-					//}	
-						messageWriter(pos);
-						areaCheck(pos);
+
+						messageWriter();
+						areaCheck();
+					}
 				}
 				function goSouth() {
-					if (visitSouth == false) {
-						var message = "You go South.";
-						displayText(message);
+
+					if (pos == 10 || pos == 11 || pos == 12) {
+						var message = "You can't go that way.";
+						updateDisplay(message);
+					} else {
 						pos = pos - 10;
 						console.log(pos);
-						visitSouth = true;
-						score = score + 5;
-						document.getElementById("score").innerHTML = "Score: " + score;
-					} else {
-						var message = "You go South.";
-						displayText(message);	
+	
+						messageWriter();
+						areaCheck();
 					}
-					
-				}
+				}	
 				function goEast() {
-					if (visitEast == false) {
-						var message = "You go East.";
-						displayText(message);
+
+					if (pos == 12 || pos == 22 || pos == 32) {
+						var message = "You can't go that way.";
+						updateDisplay(message);
+					} else {
 						pos = pos + 1;
 						console.log(pos);
-						visitEast = true;
-						score = score + 5;
-						document.getElementById("score").innerHTML = "Score: " + score;
-					} else {
-						var message = "You go East.";
-						displayText(message);	
+
+						messageWriter();
+						areaCheck();
 					}
-			
 				}
 				function goWest() {
-					if (visitWest == false) {
-						var message = "You go West.";
-						displayText(message);
+
+					if (pos == 10 || pos == 20 || pos == 30) {
+						var message = "You can't go that way.";
+						updateDisplay(message);
+					} else {
 						pos = pos - 1;
 						console.log(pos);
-						visitWest = true;
-						score = score + 5;
-						document.getElementById("score").innerHTML = "Score: " + score;
-					} else {
-						var message = "You go West.";
-						displayText(message);	
+
+						messageWriter();
+						areaCheck();
 					}
-				
 				}
-				function displayText(message) {
+				function updateDisplay(message) {
 					var textArea = document.getElementById("textBox");
 					textArea.value = message;
 				}
-				function messageWriter(pos) {
+				function messageWriter() {
 					switch (pos) {
-						case 10: var
+						case 10: 
+							var message = "You are at 10";
+							updateDisplay(message);
+							break;
+						case 11: 
+							var message = "You are at 11";
+							updateDisplay(message);
+							break;
+						case 12:
+							var message = "You are at 12";
+							updateDisplay(message);
+							break;
+						case 20:
+							var message = "You are at 20";
+							updateDisplay(message);
+							break;
+						case 21:
+							var message = "You are at 21";
+							updateDisplay(message);
+							break;
+						case 22:
+							var message = "You are at 22";
+							updateDisplay(message);
+							break;
+						case 30:
+							var message = "You are at 30";
+							updateDisplay(message);
+							break;
+						case 31:
+							var message = "You are at 31";
+							updateDisplay(message);
+							break;
+						case 32:
+							var message = "You are at 32";
+							updateDisplay(message);
+							break;
 					}
 				}
-				function areaCheck(pos) {
+				function areaCheck() {
 					
 				}
 			</script>
