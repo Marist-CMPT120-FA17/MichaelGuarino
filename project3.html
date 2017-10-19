@@ -132,10 +132,10 @@
 				function areaCheck() {
 					if (pos == 10) {
 						visit10 = 1;
-						/*document.getElementById("north").disabled = "false";
+						document.getElementById("north").disabled = "false";
 						document.getElementById("south").disabled = "true";
 						document.getElementById("east").disabled = "false";
-						document.getElementById("west").disabled = "true";*/
+						document.getElementById("west").disabled = "true";
 						console.log(visit10);
 						scoreKeeper();
 					} else if (pos == 11) {
@@ -204,7 +204,7 @@
 		</head>
 
 <body>
-<h1>The Haunted House</h1>
+<h1>The Haunted House</h1><img src = "http://dreamicus.com/data/ghost/ghost-03.jpg" width = "100px" length = "100px"><br />
 <a href = "mailto:mguarino223@gmail.com">My email</a><br /><br />
 <textarea id = "inputBox"></textarea><input id = "go" type = "button" value = "Go" onclick = "playerInput()">
 <textarea id = "textBox" rows = "5" cols= "40">You find yourself trapped inside a haunted house. You're in the foyer and the front door is locked, but you can explore the rest of the house.</textarea><p id = "score">Score: 5</p><br />
