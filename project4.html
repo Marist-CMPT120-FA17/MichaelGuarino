@@ -45,6 +45,11 @@
 					var message = "You find yourself trapped inside a haunted house. You're in the foyer and the front door is locked, but you can explore the rest of the house.";
 					updateDisplay(message);
 				}
+				function gameItem() {
+					this.take = function () {
+						
+					}
+				}
 				function goNorth() {
 					
 					if (pos == 40 || pos == 41 || pos == 42) {
@@ -156,6 +161,7 @@
 <input style = "margin-left: 20px;" type = "button" id = "north" value = "North" onclick = "goNorth()"><br />
 <input type = "button" id = "west" value = "West" onclick = "goWest()">
 <input type = "button" id = "east" value = "East" onclick = "goEast()"><br />
-<input style = "margin-left: 20px;" type = "button" id = "south" value = "South" onclick = "goSouth()">
+<input style = "margin-left: 20px;" type = "button" id = "south" value = "South" onclick = "goSouth()"><br /><br />
+<img src = "areaMap.png">
 </body>
 </html>

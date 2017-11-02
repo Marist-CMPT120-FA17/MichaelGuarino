@@ -136,11 +136,11 @@
 				function areaForty() {
 					if (visit40 == 0) {
 						visit40 = 1;
-						var message = "Area 40";
+						var message = "You're in the cellar. The air is thick and unpleasant. You put Febreeze on your shopping list.";
 						updateDisplay(message);
 						scoreKeeper();
 					} else {
-						var message = "Area 40";
+						var message = "You're in the cellar. The air is thick and unpleasant. You put Febreeze on your shopping list.";
 						updateDisplay(message);
 					}
 					document.getElementById("north").disabled = true;
