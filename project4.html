@@ -2,6 +2,7 @@
 	<html>
 		<head>
 			<title>The Haunted House</title>
+			<script src = "location.js"></script>
 			<script type = "text/javascript">
 				var score = 5;
 				var pos = 21;
@@ -14,7 +15,9 @@
 				var visit30 = 0;
 				var visit31 = 0;
 				var visit32 = 0;
-
+				var visit40 = 0;
+				var visit41 = 0;
+				var visit42 = 0;
 
 				function playerInput() {
 					var input = document.getElementById("inputBox").value;
@@ -28,22 +31,30 @@
 						goEast();
 					} else if (input == "W") {
 						goWest();
+					} else if (input == "HELP") {
+						var visited = visit10 + visit11 + visit12 + visit20 + visit21 + visit22 + visit30 + visit31 + visit32 + visit40 + visit41 + visit42;
+						var message = "Use 'N', 'S', 'E', 'W', 'n', 's', 'e', 'w' for text commands. You have visited " + visited + " area(s) so far.";
+						updateDisplay(message);
 					} else {
 						var message = "Invalid Input";
 						updateDisplay(message);
 					}
 				}
+
+				function init() {
+					var message = "You find yourself trapped inside a haunted house. You're in the foyer and the front door is locked, but you can explore the rest of the house.";
+					updateDisplay(message);
+				}
 				function goNorth() {
 					
-					if (pos == 30 || pos == 31 || pos == 32) {
+					if (pos == 40 || pos == 41 || pos == 42) {
 						var message = "You can't go that way.";
 						updateDisplay(message);
 					} else {
 						pos = pos + 10;
 						console.log(pos);
 
-						messageWriter();
-						areaCheck();
+						areaTracker();
 					}
 				}
 				function goSouth() {
@@ -55,158 +66,90 @@
 						pos = pos - 10;
 						console.log(pos);
 	
-						messageWriter();
-						areaCheck();
+						areaTracker();
 					}
 				}	
 				function goEast() {
 
-					if (pos == 12 || pos == 22 || pos == 32) {
+					if (pos == 12 || pos == 22 || pos == 32 || pos == 42) {
 						var message = "You can't go that way.";
 						updateDisplay(message);
 					} else {
 						pos = pos + 1;
 						console.log(pos);
 
-						messageWriter();
-						areaCheck();
+						areaTracker();
 					}
 				}
 				function goWest() {
 
-					if (pos == 10 || pos == 20 || pos == 30) {
+					if (pos == 10 || pos == 20 || pos == 30 || pos == 40) {
 						var message = "You can't go that way.";
 						updateDisplay(message);
 					} else {
 						pos = pos - 1;
 						console.log(pos);
 
-						messageWriter();
-						areaCheck();
+						areaTracker();
 					}
 				}
+
 				function updateDisplay(message) {
 					var textArea = document.getElementById("textBox");
 					textArea.value = message;
 				}
-				function messageWriter() {
+				function areaTracker() {
 					switch (pos) {
 						case 10: 
-							var message = "You're in the downstairs bathroom. The mirror is completely blacked out with what looks like spraypaint. You suddenly feel very self-conscious about your looks.";
-							updateDisplay(message);
+							areaTen();
 							break;
 						case 11: 
-							var message = "You're in the dining room. The table is set with food and everything, but no one is here to eat. What a waste.";
-							updateDisplay(message);
+							areaEleven();
 							break;
 						case 12:
-							var message = "You're in the hallway closet. Nothing much in here, just a bunch of skeletons. Sigh...";
-							updateDisplay(message);
+							areaTwelve();
 							break;
 						case 20:
-							var message = "You're in the kitchen. There's a particularly delicious looking piece of cake on the table. It looks too good to be true.";
-							updateDisplay(message);
+							areaTwenty();
 							break;
 						case 21:
-							var message = "You're back in the foyer. The front door is still locked.";
-							updateDisplay(message);
+							areaTwentyOne();
 							break;
 						case 22:
-							var message = "You're in the living room. There's a fire going in the fireplace, but no firewood. You're sure this must break some kind of fire code.";
-							updateDisplay(message);
+							areaTwentyTwo();
 							break;
 						case 30:
-							var message = "You're in the upstairs bathroom. The toilet is shaking violently and making a lot of weird noises. You make a note to call the plumber once you escape.";
-							updateDisplay(message);
+							areaThirty();
 							break;
 						case 31:
-							var message = "You're on the second floor. There's a large painting of a man hanging on the wall and his eyes follow you whenever you move. Spooky.";
-							updateDisplay(message);
+							areaThirtyOne();
 							break;
 						case 32:
-							var message = "You're in the master bedroom. You want to take a nap, but the bed appears to be floating. You decide against it.";
-							updateDisplay(message);
+							areaThirtyTwo();
+							break;
+						case 40:
+							areaForty();
+							break;
+						case 41:
+							areaFortyOne();
+							break;
+						case 42:
+							areaFortyTwo();
 							break;
 					}
 				}
-				function areaCheck() {
-					if (pos == 10) {
-						visit10 = 1;
-						/*document.getElementById("north").disabled = "false";
-						document.getElementById("south").disabled = "true";
-						document.getElementById("east").disabled = "false";
-						document.getElementById("west").disabled = "true";*/
-						console.log(visit10);
-						scoreKeeper();
-					} else if (pos == 11) {
-						visit11 = 1;
-						/*document.getElementById("north").disabled = "false";
-						document.getElementById("south").disabled = "true";
-						document.getElementById("east").disabled = "false";
-						document.getElementById("west").disabled = "false";*/
-						console.log(visit11);
-						scoreKeeper();
-					} else if (pos == 12) {
-						visit12 = 1;
-						/*document.getElementById("north").disabled = "false";
-						document.getElementById("south").disabled = "true";
-						document.getElementById("east").disabled = "true";
-						document.getElementById("west").disabled = "false";*/
-						console.log(visit12);
-						scoreKeeper();
-					} else if (pos == 20) {
-						visit20 = 1;
-						/*document.getElementById("north").disabled = "false";
-						document.getElementById("south").disabled = "false";
-						document.getElementById("east").disabled = "false";
-						document.getElementById("west").disabled = "true";*/
-						console.log(visit20);
-						scoreKeeper();
-					} else if (pos == 22) {
-						visit22 = 1;
-						/*document.getElementById("north").disabled = "false";
-						document.getElementById("south").disabled = "false";
-						document.getElementById("east").disabled = "true";
-						document.getElementById("west").disabled = "false";*/
-						console.log(visit22);
-						scoreKeeper();
-					} else if (pos == 30) {
-						visit30 = 1;
-						/*document.getElementById("north").disabled = "true";
-						document.getElementById("south").disabled = "false";
-						document.getElementById("east").disabled = "false";
-						document.getElementById("west").disabled = "true";*/
-						console.log(visit30);
-						scoreKeeper();
-					} else if (pos == 31) {
-						visit31 = 1;
-						/*document.getElementById("north").disabled = "true";
-						document.getElementById("south").disabled = "false";
-						document.getElementById("east").disabled = "false";
-						document.getElementById("west").disabled = "false";*/
-						console.log(visit31);
-						scoreKeeper();
-					} else if (pos == 32) {
-						visit32 = 1;
-						/*document.getElementById("north").disabled = "true";
-						document.getElementById("south").disabled = "false";
-						document.getElementById("east").disabled = "true";
-						document.getElementById("west").disabled = "false";*/
-						console.log(visit32);
-						scoreKeeper();
-					}
-				}
+				
 				function scoreKeeper() {
-					var score = (visit10 + visit11 + visit12 + visit20 + visit21 + visit22 + visit30 + visit31 + visit32) * 5;
+					var score = (visit10 + visit11 + visit12 + visit20 + visit21 + visit22 + visit30 + visit31 + visit32 + visit40 + visit41 + visit42) * 5;
 					document.getElementById("score").innerHTML = "Score: " + score;
 				}
 			</script>
 		</head>
 
-<body>
+<body onload = "init()">
 <h1>The Haunted House</h1><img src = "http://dreamicus.com/data/ghost/ghost-03.jpg" width = "100px" length = "100px"><br />
-<a href = "mailto:mguarino223@gmail.com">My email</a><br /><p>Use "N", "S", "E", "W", "n", "s", "e", "w" for text commands.<br />
-<textarea id = "textBox" rows = "5" cols= "40">You find yourself trapped inside a haunted house. You're in the foyer and the front door is locked, but you can explore the rest of the house.</textarea><br />
+<a href = "mailto:mguarino223@gmail.com">My email</a><br /><p>Type 'help' for list of commands.</p><br />
+<textarea id = "textBox" rows = "5" cols= "40"></textarea><br />
 <textarea id = "inputBox" autofocus = "true" rows = "1" cols= "40"></textarea><br />
 <input id = "go" type = "button" value = "Go!" onclick = "playerInput()"><br /><br />
 <p id = "score">Score: 5</p><br />
