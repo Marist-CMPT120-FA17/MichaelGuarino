@@ -19,6 +19,43 @@
 				var visit41 = 0;
 				var visit42 = 0;			
 
+				function Location(id, name, description, item, toString()) {
+					this.id = id;
+					this.name = name;
+					this.description = desc;
+					this.item = item;
+					this.toString = function() {
+						(this.id + ", " + this.name + ", " + this.description);
+					}	
+				}
+
+				var areaTen = new Location(10, "DownstairsBathroom", "You're in the downstairs bathroom. The mirror is completely blacked out with what looks like spraypaint. You suddenly feel very self-conscious about your looks.");
+				var areaEleven = new Location(11, "DiningRoom", "You're in the dining room. The table is set with food and everything, but no one is here to eat. What a waste.");
+				var areaTwelve = new Location(12, "Closet", "You're in the hallway closet. Nothing much in here, just a bunch of skeletons. Sigh...");
+				var areaTwenty = new Location(20, "Kitchen", "You're in the kitchen. There's a particularly delicious looking piece of cake on the table. It looks too good to be true.");
+				var areaTwentyOne = new Location(21, "Foyer", "You're back in the foyer. The front door is still locked.");
+				var areaTwentyTwo = new Location(22, "LivingRoom", "You're in the living room. There's a fire going in the fireplace, but no firewood. You're sure this must break some kind of fire code.");
+				var areaThirty = new Location(30, "UpstairsBathroom", "You're in the upstairs bathroom. The toilet is shaking violently and making a lot of weird noises. You make a note to call the plumber once you escape.");
+				var areaThirtyOne = new Location(31, "SecondFloor", "You're on the second floor. There's a large painting of a man hanging on the wall and his eyes follow you whenever you move. Spooky.");
+				var areaThirtyTwo = new Location(32, "MasterBedroom", "You're in the master bedroom. You want to take a nap, but the bed appears to be floating. You decide against it.");
+				var areaForty = new Location(40, "Cellar", "You're in the cellar. The air is thick and unpleasant. You put Febreeze on your shopping list.");
+				var areaFortyOne = new Location(41, "", "");
+				var areaFortyTwo = new Location(42, "", "");
+
+				function Item(id, name, description, toString()) {
+					this.id = id;
+					this.name = name;
+					this.description = desc;
+					this.toString() = function() {
+						(this.id + ", " + this.name + ", " + this.description);
+					}
+				}
+
+				var itemOne = new Item(1, "", "");
+				var itemTwo = new Item(2, "", "");
+				var itemThree = new Item(3, "", "");
+				var itemFour = new Item(4, "", "");
+
 				function playerInput() {
 					var input = document.getElementById("inputBox").value;
 					//console.log(input);
