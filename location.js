@@ -70,7 +70,9 @@ items[7] = keyFour;
 			take();
 		} else if (input == "UNLOCK") {
 			winCheck();
-		}else {
+		} else if (input == "INV") {
+			invCheck();
+		} else {
 			var message = "Invalid Input";
 			updateDisplay(message);
 		}
@@ -127,10 +129,12 @@ var locationMatrix = [ //N S E W
 				var message = locations[pos].desc;
 				updateDisplay(message);
 				scoreKeeper();
+				buttonDisable();
 			} else {
 				console.log(pos);
 				var message = locations[pos].desc;
 				updateDisplay(message);
+				buttonDisable();
 			}
 		}
 	}
@@ -141,7 +145,7 @@ var locationMatrix = [ //N S E W
 				var message = "You can't do that here.";
 				updateDisplay(message);
 			} else {
-				inv.push(items[pos]);
+				inv.push(items[pos].name);
 				var message = items[pos].desc;
 				updateDisplay(message);
 				locations[pos].item = null;
@@ -152,6 +156,47 @@ var locationMatrix = [ //N S E W
 	function updateDisplay(message) {
 		var textArea = document.getElementById("textBox");
 		textArea.value = message;
+	}
+
+	function invCheck() {
+		if (inv.length == 0) {
+			var message = "You have nothing.";
+			updateDisplay(message);
+		} else {
+			var message = "Inventory: " + inv.toString();
+			updateDisplay(message);
+		}
+	}
+
+	function buttonDisable() {
+		document.getElementById('north').disabled = false;
+		document.getElementById('south').disabled = false;
+		document.getElementById('east').disabled = false;
+		document.getElementById('west').disabled = false;
+
+		if (pos == 3 || pos == 6) {
+			document.getElementById('west').disabled = true;
+		} else if (pos == 8 || pos == 5) {
+			document.getElementById('east').disabled = true;
+		} else if (pos == 10) {
+			document.getElementById('north').disabled = true;
+		} else if (pos == 1) {
+			document.getElementById('south').disabled = true;	
+		} else if (pos == 9) {
+			document.getElementById('west').disabled = true;
+			document.getElementById('north').disabled = true;
+		} else if (pos == 11) {
+			document.getElementById('north').disabled = true;
+			document.getElementById('east').disabled = true;
+		} else if (pos == 2) {
+			document.getElementById('east').disabled = true;
+			document.getElementById('south').disabled = true;
+		} else if (pos == 0) {
+			document.getElementById('west').disabled = true;
+			document.getElementById('south').disabled = true;
+		} else {
+
+		}
 	}
 
 	function winCheck() {
