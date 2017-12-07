@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>The Haunted House</title>
+			<script src = "location.js"></script>
+		</head>
+<body onload = "init()">
+<h1>The Haunted House</h1><img src = "http://dreamicus.com/data/ghost/ghost-03.jpg" width = "100px" length = "100px"><br />
+<a href = "mailto:mguarino223@gmail.com">My email</a><br /><p>Type 'help' for list of commands.</p><br />
+<textarea id = "textBox" rows = "5" cols= "40"></textarea><br />
+<textarea id = "inputBox" autofocus = "true" rows = "1" cols= "40"></textarea><br />
+<input id = "go" type = "button" value = "Go!" onclick = "playerInput()"><br /><br />
+<p id = "score">Score: 5</p><br />
+<input style = "margin-left: 20px;" type = "button" id = "north" value = "North" onclick = "goNorth()"><br />
+<input type = "button" id = "west" value = "West" onclick = "goWest()">
+<input type = "button" id = "east" value = "East" onclick = "goEast()"><br />
+<input style = "margin-left: 20px;" type = "button" id = "south" value = "South" onclick = "goSouth()"><br /><br />
+<img src = "areaMap.png">
+</body>
+</html>
